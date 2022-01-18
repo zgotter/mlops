@@ -1,2 +1,3 @@
 .DS_Store
-01_docker-and-kubernetes/kubernetes-practice/
+01_docker-and-kubernetes/kubernetes-practice/kubectl
+01_docker-and-kubernetes/kubernetes-practice/minikube-darwin-arm64
