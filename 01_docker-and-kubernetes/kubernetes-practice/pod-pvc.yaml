@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx
+      volumeMounts:
+      - mountPath: "/var/www/html" # mount할 pvc를 mount할 pod의 경로 작성
+        name: mypd # 어떤 이름이든 상관없으나, 아래의 `volumes[0].name`과 일치해야 한다.
+  volumes:
+    - name: mypd # 어떤 이름이든 상관없으나, 위의 `volumeMounts[0].name`과 일치해야 한다.
+      persistentVolumeClaim:
+        claimName: myclaim # mount할 pvc의 name 작성
