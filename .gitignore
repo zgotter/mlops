@@ -2,3 +2,5 @@
 01_docker-and-kubernetes/kubernetes-practice/kubectl
 01_docker-and-kubernetes/kubernetes-practice/minikube-darwin-arm64
 03_model-management/mlflow-practice/mlruns/
+03_model-management/mlflow-practice/sklearn_autolog/mlruns/
+03_model-management/mlflow-practice/xgboost/mlruns/
