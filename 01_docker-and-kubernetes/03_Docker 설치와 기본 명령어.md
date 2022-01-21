@@ -94,7 +94,7 @@ docker image repository로부터 docker image를 가져오는 명령어
 예시)
 
 ```bash
-docker pulll ubuntu:18.04
+docker pull ubuntu:18.04
 ```
 
 - [docker.io/library](http://docker.io/library/) 라는 이름의 repository 에서 ubuntu:18.04 라는 image 를 여러분의 노트북에 다운로드 받게된다.
