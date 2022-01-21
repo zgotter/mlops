@@ -1,3 +1,4 @@
 .DS_Store
 01_docker-and-kubernetes/kubernetes-practice/kubectl
 01_docker-and-kubernetes/kubernetes-practice/minikube-darwin-arm64
+03_model-management/mlflow-practice/mlruns/
