@@ -4,3 +4,4 @@
 03_model-management/mlflow-practice/mlruns/
 03_model-management/mlflow-practice/sklearn_autolog/mlruns/
 03_model-management/mlflow-practice/xgboost/mlruns/
+04_model-serving/flask-practice/build/
