@@ -1,0 +1,14 @@
+apiVersion: machinelearning.seldon.io/v1
+kind: SeldonDeployment
+metadata:
+  name: iris-model
+  namespace: seldon
+spec:
+  name: iris
+  predictors:
+  - graph:
+      implementation: SKLEARN_SERVER # seldon core에서 sklearn용으로 pre-package된 model server
+      modelUri: gs://seldon-models/v1.11.0-dev/sklearn/iris # seldon core에서 제공하는 open source model (iris 데이터를 분류하는 모델이 저장된 위치, google storage에 이미 trained model이 저장되어 있음)
+      name: classifier
+    name: default
+    replicas: 1 # 로드밸런싱을 위한 replica 개수 (replica 끼리는 자동으로 동일한 uri 공유)
