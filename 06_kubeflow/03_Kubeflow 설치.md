@@ -7,7 +7,7 @@
 - Helm과 비슷한 역할을 담당
 - 여러 개의 yaml 파일들을 쉽게 관리하기 위한 도구
 - 여러 리소스들의 configuration을 탬플릿(**base**)과 customization한 부분(**overlay**)을 나누어서 관리할 수 있는 도구
-- `customize build` 명령을 통해, base + overlay가 merge된 형태의 yaml 파일들을 생성할 수 있다.
+- `kustomize build` 명령을 통해, base + overlay가 merge된 형태의 yaml 파일들을 생성할 수 있다.
 
 
 
@@ -61,47 +61,44 @@
 
 
 
-### 3.3.1 kustomize 설정
-
-#### 3.3.1.1 바이너리 다운
+### 3.3.1 kustomize 설치
 
 - OS 에 맞는 바이너리 다운로드
-
 - M1 Mac은 v4.2.0부터 지원
 - [https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv4.2.0](https://github.com/kubernetes-sigs/kustomize/releases/tag/kustomize%2Fv4.2.0)
 
 ```bash
-# darwin_arm64
-wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.2.0/kustomize_v4.2.0_darwin_arm64.tar.gz
+# linux_amd64
+
+# 바이너리 다운
+wget https://github.com/kubernetes-sigs/kustomize/releases/download/v3.2.0/kustomize_3.2.0_linux_amd64
+
+# 실행 권한 부여
+chmod +x kustomize_3.2.0_linux_amd64
+
+# 바이너리 등록
+sudo mv kustomize_3.2.0_linux_amd64 /usr/local/bin/kustomize
+
+# 버전 확인
+kustomize version
 ```
 
 ```bash
+# darwin_arm64
+
+# 바이너리 압축 파일 다운
+wget https://github.com/kubernetes-sigs/kustomize/releases/download/kustomize%2Fv4.2.0/kustomize_v4.2.0_darwin_arm64.tar.gz
+
 # 압축 해제
 tar -zxvf kustomize_v4.2.0_darwin_arm64.tar.gz
-```
 
-
-
-#### 3.3.1.2 file mode 변경
-
-```bash
 # 실행 권한 부여
 chmod +x kustomize
-```
 
-
-
-#### 3.3.1.3 바이너리 등록
-
-```bash
+# 바이너리 등록
 sudo mv kustomize /usr/local/bin/kustomize
-```
 
-
-
-#### 3.3.1.4 버전 확인
-
-```bash
+# 버전 확인
 kustomize version
 ```
 
@@ -261,7 +258,7 @@ kustomize build common/kubeflow-namespace/base | kubectl apply -f -
 **(6) Kubeflow Roles**
 
 ```bash
-  kustomize build common/kubeflow-roles/base | kubectl apply -f -
+kustomize build common/kubeflow-roles/base | kubectl apply -f -
 ```
 
 
