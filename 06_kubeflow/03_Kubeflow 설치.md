@@ -400,11 +400,12 @@ kubectl get pod -n kubeflow
 ### 3.4.1 포트 포워딩
 
 ```bash
-kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80 --address=0.0.0.0
 ```
 
 - gateway를 포트 포워딩하여 `localhost:8080` 으로 kubeflow 대시보드에 접속
 - 해당 명령어를 실행한 터미널을 열어놔야 대시보드에 접속할 수 있다.
+- `--address` argument에 `0.0.0.0` 을 지정하면 모든 IP에 대한 포트 포워딩이 지정된다.
 
 
 
