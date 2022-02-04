@@ -423,9 +423,18 @@ kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
 ### 3.5.1 kubectx & kubens
 
 - kubernetes의 current-context와 kubernetes의 current-namespace를 변경할 수 있는 툴
+
 - 여러 개의 context나 namespace를 다루는 경우에 유용하게 사용할 수 있음
+
 - [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx)
-  - Install 방법도 매우 간편
+
+  ```bash
+  sudo git clone https://github.com/ahmetb/kubectx /opt/kubectx
+  sudo ln -s /opt/kubectx/kubectx /usr/local/bin/kubectx
+  sudo ln -s /opt/kubectx/kubens /usr/local/bin/kubens
+  ```
+
+- Install 방법도 매우 간편
 
 - ex) `kubens kubeflow`
   - 현재 바라보고 있는 namespace가 `kubeflow`로 변경됨
